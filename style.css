@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+:root{
+    --background-color: #387EF3;
+    --background-color-checkbox: #ffffff;
+}
+
+body{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+    font-family: "Open Sans", sans-serif;
+}
+
+#content_container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    background-color: white;
+    height: 90vh;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 80vw;
+    border-radius: 8px;
+}
+
+#submit{
+    display: flex;
+    gap: 8px;
+}
+
+#task {
+    width: 64vw;
+    height: 40px;
+    display: flex;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 5px;
+}
+
+button{
+    color: white;
+    background-color: var(--background-color);
+    border: none;
+    border-radius: 3px;
+    width: 40px;
+    font-size: 24px;
+}
+
+#task_list{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: aliceblue;
+}
+
+#checkbox{
+    width: 24px;
+    height: 24px;
+}
+
+#newDiv{
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+    width: 66.5vw;
+    padding: 0 8px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+#alert {
+    font-size: 20px;
+    color : red;
+}
+
+#divInputAndTask{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+#divIcons {
+    display: flex;
+    gap: 8px;
+}
