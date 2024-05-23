@@ -21,18 +21,32 @@ function addTask() {
         let newInput = document.createElement("input")
         newInput.type = "checkbox"
         newInput.id = "checkbox"
+        newInput.addEventListener("click", () => {
+            if (newInput.checked){
+                newTask.style.textDecoration = "line-through"
+            }else newTask.style.textDecoration = "none"
+        })
 
-        let newTask = document.createElement("p")
-        newTask.textContent = task.value
+        let newTask = document.createElement("input")
+        newTask.value = task.value
+        newTask.disabled = true
+        newTask.style.backgroundColor = "#387EF3"
+        newTask.style.border = "none"
+        newTask.style.color = "white"
+
 
         let editIcon = document.createElement("img")
         editIcon.id = "edit_icon"
         editIcon.src = "assets/edit-icon.svg"
         editIcon.onclick = function () {
-            let taskEdited = prompt("Digite a nova tarefa")
-            if (taskEdited != null) {
-                newTask.textContent = taskEdited
+            if (newTask.disabled){
+                newTask.disabled = false
+                editIcon.src ="assets/check-icon.svg"
+            }else{
+                newTask.disabled = true
+                editIcon.src ="assets/edit-icon.svg"
             }
+            newTask.focus()
         }
 
         let deleteIcon = document.createElement("img")
