@@ -1,3 +1,6 @@
+//array de tarefas
+var arrayTask = []
+
 function addTask() {
     //pegando as section task, task_list e alerta
     var task = document.getElementById("task")
@@ -6,6 +9,10 @@ function addTask() {
 
     //criando uma div com input, paragrafo e imagens
     if (task.value != "") {
+
+        arrayTask.push(task.value)
+        console.log(arrayTask)
+        
 
         alert.innerHTML = ""
         task.style.border = "2px solid black"
@@ -28,7 +35,7 @@ function addTask() {
         })
 
         let newTask = document.createElement("input")
-        newTask.value = task.value
+        newTask.value = arrayTask[arrayTask.length -1]
         newTask.disabled = true
         newTask.style.backgroundColor = "#387EF3"
         newTask.style.border = "none"
@@ -38,24 +45,28 @@ function addTask() {
         let editIcon = document.createElement("img")
         editIcon.id = "edit_icon"
         editIcon.src = "assets/edit-icon.svg"
+        var indice = arrayTask.indexOf(newTask.value)
         editIcon.onclick = function () {
             if (newTask.disabled){
                 newTask.disabled = false
                 editIcon.src ="assets/check-icon.svg"
             }else{
+                var taskEdited = newTask.value
+                arrayTask[indice] = taskEdited
                 newTask.disabled = true
                 editIcon.src ="assets/edit-icon.svg"
             }
             newTask.focus()
         }
-
+        
         let deleteIcon = document.createElement("img")
         deleteIcon.src = "assets/delete-icon.svg"
         deleteIcon.onclick = function () {
             task_list.removeChild(newDiv)
+            arrayTask.splice(arrayTask.indexOf(newTask.value), 1);
         }
-
-
+        
+        
         task_list.appendChild(newDiv)
         newDiv.appendChild(divInputAndTask)
         divInputAndTask.appendChild(newInput)
